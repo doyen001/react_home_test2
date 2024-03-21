@@ -1,0 +1,126 @@
+.content {
+  min-height: 100dvh;
+  /* min-height: 100vh; */
+  height: 100%;
+  width: 100%;
+  z-index: 1; /* Ensure that the content is above the pseudo-element */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5vh;
+  padding-bottom: 20dvh; /* push the content up a bit */
+  position: relative;
+}
+
+.noPaddingTop {
+  padding-top: 0;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, gray 1px, transparent 1px);
+  /* Create a mask that fades to transparent at the edges */
+  -webkit-mask-image: radial-gradient(farthest-side, gray 50%, transparent 75%);
+  mask-image: radial-gradient(farthest-side, gray 50%, transparent 75%);
+  pointer-events: none; /* Allows clicks to pass through to elements below */
+  z-index: -1;
+}
+
+.homePageText {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 300;
+  text-align: center;
+  font-size: 24px;
+}
+
+.logoWrapper {
+  margin-bottom: 6vh;
+}
+
+@media (max-width: 854px), (max-height: 700px) {
+  .homePageText {
+    font-size: 16px;
+  }
+
+  .content {
+    padding-bottom: 10vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .littleLinkLogo {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .content::before {
+    background-image: none;
+  }
+
+  .content {
+    padding-bottom: 0;
+  }
+}
+
+
+/* Phones in landscape mode */
+@media (max-height: 500px) {
+  .content {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+}
+
+.floatingLink {
+  background-color: transparent;
+  width: 428px; /* Set a fixed width, ensure the container can accommodate it */
+  max-width: 100%; /* Ensure it does not exceed the width of its container */
+  text-align: center; /* Align the text to the left */
+  display: block; /* Change to block to take up the full available width */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box; /* Include padding and border in the width and height */
+  color: var(--button-color-one);
+  transition: transform 0.3s ease-in-out;
+}
+
+.floatingLink:hover {
+  /* scale up the item on hover */
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+  .floatingLink {
+    max-width: 90vw; /* Adjust width to a percentage of the screen size */
+    border: 0px;
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+.linkCloudWrapper {
+  font-size: 16px;
+  margin-top: 10vh;
+}
+
+@media (max-width: 600px) {
+  .logoWrapper {
+    margin-bottom: 8vh;
+  }
+
+  .linkCloudWrapper {
+    margin-top: 5vh;
+  }
+}

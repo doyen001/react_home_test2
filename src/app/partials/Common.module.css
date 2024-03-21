@@ -1,0 +1,28 @@
+/* !important overrides style in another class to make sure this takes precedence.
+  Otherwise import order would determine which style is applied, and the order is not consistent,
+  especially due to prefetching and prerendering */
+
+/* On smaller resolutions, hide the text for Large screens */
+@media (max-width: 854px) {
+  .largeScreen {
+    display: none !important;
+  }
+}
+
+/* On larger resolutions, hide the text for Small screens */
+@media (min-width: 854px) {
+  .smallScreen {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hideBelowWidth700 {
+    display: none !important;
+  }
+}
+
+.linkCloudWrapper {
+  width: 800px;
+  font-size: 16px;
+}

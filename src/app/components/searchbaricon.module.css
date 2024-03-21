@@ -1,0 +1,11 @@
+.searchIcon {
+    color: #fff;
+    border-radius: 50%;
+    background-color: var(--button-color-one);
+    transition: opacity 0.3s ease;
+  }
+  
+.searchIcon:hover {
+    opacity: 0.75;
+    cursor: pointer;
+  }
